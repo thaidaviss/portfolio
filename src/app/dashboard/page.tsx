@@ -1,15 +1,16 @@
 'use client';
 
-import Image from "next/image";
-import profilePic from '../assets/photo.png';
-import {Header} from "../components";
+import { Suspense } from 'react';
+import { Header } from '../components';
+import Loading from './loading';
 const DashboardPage = () => {
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <Header></Header>
-      <a href='/dashboard'> dashboard</a>
-      {/* <Image src={profilePic} width={500} height={500} alt='Picture of the author'></Image> */}
-    </main>
+    <Suspense fallback={<Loading />}>
+      <main className='flex min-h-screen flex-col items-center justify-between pt-9 pb-9 pr-10 pl-10'>
+        <Header></Header>
+        <a href='/dashboard'> dashboard</a>
+      </main>
+    </Suspense>
   );
 };
 
