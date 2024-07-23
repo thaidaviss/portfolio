@@ -1,12 +1,11 @@
 import React from 'react';
 
-
-function Loading() {
+function Work() {
   return (
     <div>
-      loading...
+      work
     </div>
   );
 }
 
-export default Loading;
+export default Work;
