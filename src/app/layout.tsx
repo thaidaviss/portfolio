@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
-import { Header } from '@/components';
+import { Header, PageTransition } from '@/components';
 import { cn } from '@/lib/utils';
+import StairLoading from '@/components/StairLoading';
 
 const jestBrainsMono = JetBrains_Mono({
   subsets: ['latin'],
@@ -23,10 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={cn(jestBrainsMono.variable, 'w-full p-5')}>
+      <body className={cn(jestBrainsMono.variable, 'w-full ')}>
         <ThemeProvider attribute='class' defaultTheme='light' disableTransitionOnChange>
           <Header />
-          {children}
+          <StairLoading />
+          <PageTransition>
+            <main className='w-full min-h-full p-5'>{children}</main>
+          </PageTransition>
         </ThemeProvider>
       </body>
     </html>

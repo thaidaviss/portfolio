@@ -1,11 +1,10 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import React from 'react';
+import { cn } from '@/lib/utils';
 import { AlignRight, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
 const menuList = [
   {
     label: 'Home',
@@ -40,7 +39,7 @@ export function Header() {
     setTheme(theme == 'light' ? 'dark' : 'light');
   };
   return (
-    <div className='header flex justify-between items-center w-full'>
+    <div className='header flex justify-between items-center w-full p-5'>
       <Link href={'/'}>
         <h1 className='logo cursor-pointer font-bold text-xl'>
           <span className='text-blue-500'>{'<'}</span>
@@ -72,7 +71,7 @@ export function Header() {
           </Button>
         </div>
         <div className='nav navbar-mobile md:hidden'>
-          <AlignRight size={35} fontWeight={800}/>
+          <AlignRight size={35} fontWeight={800} />
         </div>
       </div>
     </div>
