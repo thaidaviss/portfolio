@@ -17,7 +17,7 @@ function StairLoading() {
           className='h-screen w-screen fixed bg-secondary top-0 pointer-events-none'
           animate={{
             opacity: 0,
-            transition: { delay: 0.8, duration: 0.3, ease: 'easeInOut' },
+            transition: { delay: 0.7, duration: 0.2, ease: 'easeInOut' },
           }}></motion.div>
       </div>
     </AnimatePresence>

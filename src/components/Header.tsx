@@ -5,6 +5,8 @@ import { AlignRight, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import MobileNav from './MobileNav';
 const menuList = [
   {
     label: 'Home',
@@ -33,13 +35,17 @@ const menuList = [
   },
 ];
 export function Header() {
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
   const { setTheme, theme } = useTheme();
   const pathname = usePathname();
   const onChangeTheme = () => {
     setTheme(theme == 'light' ? 'dark' : 'light');
   };
+  const openMenuMobile = () => {
+    setIsMobileOpen(!isMobileOpen);
+  };
   return (
-    <div className='header flex justify-between items-center w-full p-5'>
+    <div className='header flex justify-between items-center mt-8 container mx-auto h-full'>
       <Link href={'/'}>
         <h1 className='logo cursor-pointer font-bold text-xl'>
           <span className='text-blue-500'>{'<'}</span>
@@ -48,7 +54,7 @@ export function Header() {
         </h1>
       </Link>
       <div className='nav flex justify-between items-center gap-6 md:gap-[100px] '>
-        <div className='menu navbar-laptop md:flex hidden'>
+        <div className='menu menu-laptop md:flex hidden'>
           <ul className='flex w-[400px] justify-between'>
             {menuList.map(menuItem => {
               return (
@@ -70,9 +76,14 @@ export function Header() {
             {theme == 'light' ? <Sun /> : <Moon />}
           </Button>
         </div>
-        <div className='nav navbar-mobile md:hidden'>
+        <div className='mobile md:hidden cursor-pointer' onClick={openMenuMobile}>
           <AlignRight size={35} fontWeight={800} />
         </div>
+        <MobileNav
+          isMobileOpen={isMobileOpen}
+          menuList={menuList}
+          openMenuMobile={openMenuMobile}
+        />
       </div>
     </div>
   );
