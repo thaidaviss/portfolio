@@ -1,6 +1,6 @@
 import { Button } from '@/components';
 import { Avatar, Socials } from '@/components';
-import {Stats} from '@/components';
+import { Stats } from '@/components';
 
 import { Download } from 'lucide-react';
 
@@ -22,22 +22,23 @@ export default function Home() {
               and best practices to become a better engineer.
             </p>
             {/* button and socials */}
-            <div className='button flex justify-center xl:justify-start'>
+            <div className='button flex flex-col items-center gap-5 justify-center xl:justify-start xl:flex-row'>
               <Button variant={'outline'} className='flex justify-center items-center gap-2'>
                 <span>Download CV</span>
                 <Download size={18} />
               </Button>
+              {/* photo */}
+              <div className='socials'>
+                <Socials />
+              </div>
             </div>
-            <div className='socials'>
-              <Socials />
-            </div>
-            {/* photo */}
           </div>
+
           <div className='photo mb-5 xl:mb-0'>
             <Avatar />
           </div>
         </div>
-        <Stats/>
+        <Stats />
       </div>
     </section>
   );
