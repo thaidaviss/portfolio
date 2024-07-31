@@ -20,7 +20,7 @@ function MobileNav({ isMobileOpen, menuList, openMenuMobile }: IProps) {
     await animate(
       scope.current,
       { x: isOpen ? '0' : '100%' },
-      { duration: 0.7, ease: 'easeInOut', delay: 0.2 },
+      { duration: 0.4, ease: 'easeInOut', delay: 0 },
     );
   };
   useEffect(() => {
@@ -49,7 +49,7 @@ function MobileNav({ isMobileOpen, menuList, openMenuMobile }: IProps) {
           })}
         </ul>
         <div
-          className='absolute top-5 right-5 text-secondary cursor-pointer'
+          className='absolute top-10 right-5 text-secondary cursor-pointer'
           onClick={openMenuMobile}>
           <X />
         </div>

@@ -1,5 +1,6 @@
 import { Button } from '@/components';
 import { Avatar, Socials } from '@/components';
+import {Stats} from '@/components';
 
 import { Download } from 'lucide-react';
 
@@ -7,7 +8,7 @@ export default function Home() {
   return (
     <section className='h-full'>
       <div className='container mx-auto h-full'>
-        <div className='flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24'>
+        <div className='flex flex-col-reverse xl:flex-row items-center justify-between xl:pt-8 xl:pb-24'>
           {/* text */}
           <div className='text-center xl:text-left'>
             <span className='text-xl'>Software Developer</span>
@@ -32,10 +33,11 @@ export default function Home() {
             </div>
             {/* photo */}
           </div>
-          <div className='photo'>
+          <div className='photo mb-5 xl:mb-0'>
             <Avatar />
           </div>
         </div>
+        <Stats/>
       </div>
     </section>
   );
