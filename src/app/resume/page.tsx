@@ -78,7 +78,7 @@ const experience = {
     },
   ],
 };
-function Resume() {
+function Resume () {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -129,6 +129,10 @@ function Resume() {
           <TabsContent value='skill' className='w-full'>
             Skill
           </TabsContent>
+          <TabsContent value='experience'>Experience</TabsContent>
+          <TabsContent value='education'>Education</TabsContent>
+          <TabsContent value='about-me'>About Me</TabsContent>
+          <TabsContent value='skill'>Skill</TabsContent>
         </Tabs>
       </div>
     </motion.div>
