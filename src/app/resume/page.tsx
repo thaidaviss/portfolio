@@ -78,7 +78,7 @@ const experience = {
     },
   ],
 };
-function Resume () {
+function Resume() {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -94,30 +94,37 @@ function Resume () {
           </TabsList>
           <TabsContent value='experience' className='w-full'>
             <ScrollArea className='h-[80vh] w-full'>
-              {experience.items.reverse().map((item, index) => {
-                return (
-                  <div key={index} className='mt-10'>
-                    <div className='text-lg font-bold mb-2 text-blue-500'>
-                      {item.company}|{item.position}
-                    </div>
-                    <div>{item.project}</div>
-                    <div className='text-sm italic mb-2'>{item.duration}</div>
-                    <div>{item.description}</div>
-                    <div>Technologies:</div>
-                    <ul className='text-md list-disc '>
-                      {item.technologies.map(tech => (
-                        <li className='ml-5 list'>{tech}</li>
-                      ))}
-                    </ul>
-                    <div>Responsibilities:</div>
-                    <ul className='list-disc'>
-                      {item.responsibilities.map(re => (
-                        <li className='ml-5 list'>{re}</li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
+              <div className='relative'>
+                <div className='ml-9'>
+                  {experience.items.reverse().map((item, index) => {
+                    return (
+                      <div key={index} className='mt-1 relative'>
+                        <div className='w-[12px] h-[12px] rounded-[50%] bg-white border-2 border-blue-500 absolute left-[-32px] top-2 z-20 '></div>
+                        <div className='absolute top-[12px] left-[-30px] w-5 h-[4px] bg-blue-500'></div>
+                        <div className='text-lg font-bold mb-2 text-blue-500'>
+                          {item.company}|{item.position}
+                        </div>
+                        <div>{item.project}</div>
+                        <div className='text-sm italic mb-2'>{item.duration}</div>
+                        <div className='indent-5'>{item.description}</div>
+                        <div>Technologies:</div>
+                        <ul className='text-md list-disc '>
+                          {item.technologies.map(tech => (
+                            <li className='ml-5 list'>{tech}</li>
+                          ))}
+                        </ul>
+                        <div>Responsibilities:</div>
+                        <ul className='list-disc'>
+                          {item.responsibilities.map(re => (
+                            <li className='ml-5 list'>{re}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className='absolute h-full w-[4px] bg-blue-600 top-0 left-2 z-10'></div>
+              </div>
             </ScrollArea>
           </TabsContent>
           <TabsContent value='education' className='w-full'>
@@ -129,10 +136,10 @@ function Resume () {
           <TabsContent value='skill' className='w-full'>
             Skill
           </TabsContent>
-          <TabsContent value='experience'>Experience</TabsContent>
+          {/* <TabsContent value='experience'>Experience</TabsContent>
           <TabsContent value='education'>Education</TabsContent>
           <TabsContent value='about-me'>About Me</TabsContent>
-          <TabsContent value='skill'>Skill</TabsContent>
+          <TabsContent value='skill'>Skill</TabsContent> */}
         </Tabs>
       </div>
     </motion.div>
